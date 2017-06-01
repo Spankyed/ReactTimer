@@ -1,11 +1,9 @@
 var React = require('react');
 
-var Timer = (props) => {
-  return (
-    <div>
-      <p>timer</p>
-    </div>
-  )
-};
+var Timer = React.createClass({
+  render: function(){
+    return <p>Timer</p>
+  }
+});
 
 module.exports = Timer;
