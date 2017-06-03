@@ -9,7 +9,6 @@ var Countdown = React.createClass({
       count: 0,
       countdownStatus: 'stopped'
     };
-
   },
   componentDidUpdate: function(prevProps, prevState){
     if(this.state.countdownStatus !== prevState.countdownStatus){
@@ -67,6 +66,7 @@ var Countdown = React.createClass({
 
     return (
       <div>
+        <h1 className="page-title">Count Down</h1>
         <Clock totalSeconds={count}/>
         {renderControlArea()}
       </div>
