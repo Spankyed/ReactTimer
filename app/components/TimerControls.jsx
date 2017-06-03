@@ -1,13 +1,13 @@
 var React = require('react');
 
-var Controls = React.createClass({
+var TimerControls = React.createClass({
   // getInitialState: function(){
-  //     countdownStatus: stopped
+  //     counting: stopped
   // },
 
   //neccesary?
   propTypes:{
-    countdownStatus: React.PropTypes.string.isRequired,
+    counting: React.PropTypes.string.isRequired,
     onStatusUpdate: React.PropTypes.func.isRequired,
   },
   onStatusUpdate: function (newStatus){
@@ -15,15 +15,12 @@ var Controls = React.createClass({
       this.props.onStatusUpdate(newStatus);
     }
   },
-  componentWillReceiveProps: function (newProps){
-    console.log(newProps.countdownStatus);
-  },
   render: function (){
-    var {countdownStatus} = this.props;
+    var {counting} = this.props;
     var renderStartStopButton = () =>{
-      if(countdownStatus === 'started'){
+      if(counting === 'started'){
         return <button className="button secondary" onClick={this.onStatusUpdate('paused')}>Pause</button>
-      } else if (countdownStatus === 'paused') {
+      } else if (counting === 'paused' || counting === 'stopped') {
         return <button className="button primary" onClick={this.onStatusUpdate('started')}>Start</button>
       }
     };
@@ -38,4 +35,4 @@ var Controls = React.createClass({
 
 });
 
-module.exports = Controls;
+module.exports = TimerControls;
